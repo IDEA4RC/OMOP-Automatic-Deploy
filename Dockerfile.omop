@@ -6,7 +6,6 @@ ENV POSTGRES_USER postgres
 ENV POSTGRES_PASSWORD mysecretpassword
 ENV POSTGRES_DB test-omop
 
-VOLUME /var/lib/postgresql/data
 
 # Copy the SQL script to initialize the database
 COPY ./base_sql_scripts/* /docker-entrypoint-initdb.d/

@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  db:
+    build: 
+      context: .
+      dockerfile: Dockerfile.omop
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: test-omop
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  vocab_uploader:
+    networks:
+      - default
+    build:
+      context: .
+      dockerfile: Dockerfile.vocab_upload
+      args:
+        - VOCAB_PG_DATABASE=test-omop
+        - VOCAB_PG_SCHEMA=omop_vocab
+        - VOCAB_PG_USER=postgres
+        - VOCAB_PG_PASSWORD=mysecretpassword
+    environment:
+      - VOCAB_PG_HOST=db
+      - VOCAB_PG_DATABASE=test-omop
+      - VOCAB_PG_SCHEMA=omop_vocab
+      - VOCAB_PG_USER=postgres
+      - VOCAB_PG_PASSWORD=mysecretpassword
+    links:
+      - "db:database"
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_started
+
+volumes:
+  db-data:
+
