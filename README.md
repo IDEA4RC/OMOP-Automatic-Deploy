@@ -53,11 +53,9 @@ This repository contains the necessary files to deploy the OMOP database using K
 | VOCAB_PG_HOST | Host of the database | db (should have the name of the service containing the database) |
 | VOCAB_PG_DATABASE | Name of the database | test-omop (should be the same as in database service) |
 | VOCAB_PG_USER | Name of the administration user of the database | postgres (should be the same as in database service) |
-| VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword () |
+| VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword (should be the same as in database service) |
 | VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omop-vocab |
 
-
-== Todo lo marcado con "*" debe de tener el mismo nombre que en el servicio de la base de datos ==
 
 
 ## License
