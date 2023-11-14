@@ -10,7 +10,7 @@ This repository contains the necessary files to deploy the OMOP database using K
 2. [Deployment](#deployment)
     1. [Kubernetes](#kubernetes)
     2. [Docker Compose](#docker-compose)
-3. [License](#License)
+3. [License](#license)
 
 ## Prerequisites
 
