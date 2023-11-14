@@ -21,6 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile.vocab_upload
       args:
+        - VOCAB_PG_HOST=db
         - VOCAB_PG_DATABASE=test-omop
         - VOCAB_PG_SCHEMA=omop_vocab
         - VOCAB_PG_USER=postgres
