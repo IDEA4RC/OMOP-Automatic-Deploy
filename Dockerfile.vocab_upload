@@ -12,7 +12,7 @@ COPY ./vocab_script/ /app/
 
 RUN apk add --no-cache --upgrade bash
 
-RUN chmod +x ./scripts/load_omop_vocab.
+RUN chmod +x ./scripts/load_omop_vocab.sh
 
 RUN sleep 100
 
