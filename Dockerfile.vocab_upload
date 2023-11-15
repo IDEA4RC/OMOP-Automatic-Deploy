@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12
 
 ARG VOCAB_PG_HOST
 ARG VOCAB_PG_DATABASE
@@ -13,7 +13,5 @@ COPY ./vocab_script/ /app/
 RUN apk add --no-cache --upgrade bash
 
 RUN chmod +x ./scripts/load_omop_vocab.sh
-
-RUN sleep 100
 
 CMD bash ./scripts/load_omop_vocab.sh
