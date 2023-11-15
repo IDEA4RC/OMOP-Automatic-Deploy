@@ -1,12 +1,6 @@
 # Use the official postgres image as the base image
 FROM postgres:16.0-alpine3.18
 
-# Set the environment variables for the postgres image
-ENV POSTGRES_USER postgres
-ENV POSTGRES_PASSWORD mysecretpassword
-ENV POSTGRES_DB test-omop
-
-
 # Copy the SQL script to initialize the database
 COPY ./base_sql_scripts/* /docker-entrypoint-initdb.d/
 
