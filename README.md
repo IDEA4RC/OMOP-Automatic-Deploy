@@ -8,8 +8,8 @@ This repository contains the necessary files to deploy the OMOP database using K
 
 1. [Prerequisites](#prerequisites)
 2. [Deployment](#deployment)
-    1. [Kubernetes](#kubernetes)
-    2. [Docker Compose](#docker-compose)
+    1. [Docker Compose](#docker-compose)
+    2. [Kubernetes](#kubernetes)
 3. [License](#license)
 
 ## Prerequisites
@@ -19,14 +19,6 @@ This repository contains the necessary files to deploy the OMOP database using K
 - [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 ## Deployment
-
-### Kubernetes
-
-1. Clone this repository:
-
-    ```bash
-    git clone https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy.git
-    ```
 
 ### Docker Compose
 
@@ -63,6 +55,15 @@ This repository contains the necessary files to deploy the OMOP database using K
 ```bash
 docker compose up -d
 ```
+
+### Kubernetes
+
+1. Clone this repository:
+
+    ```bash
+    git clone https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy.git
+    ```
+
 
 ## License
 
