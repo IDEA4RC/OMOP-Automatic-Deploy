@@ -52,9 +52,9 @@ This repository contains the necessary files to deploy the OMOP database using K
 
 4. When everything is ready, you must execute the [docker-compose.yaml](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/docker-compose.yaml) using this command:
 
-```bash
-docker compose up -d
-```
+    ```bash
+    docker compose up -d
+    ```
 
 ### Kubernetes
 
