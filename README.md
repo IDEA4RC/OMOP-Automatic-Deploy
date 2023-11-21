@@ -56,7 +56,13 @@ This repository contains the necessary files to deploy the OMOP database using K
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
 | VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omop-vocab |
 
+3. In order to load the vocabularies when the database is ready, the [vocab_loader](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/vocab_script/scripts/vocab_loader.sh) script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/vocab_script/files) folder. Don't change the files names, because the script uses them to load the vocabularies.
 
+4. When everything is ready, you must execute the [docker-compose.yaml](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/docker-compose.yaml) using this command:
+
+```bash
+docker compose up -d
+```
 
 ## License
 
