@@ -16,7 +16,7 @@ spec:
             - name: VOCAB_PG_HOST
               value: omop-postgres-service
             - name: VOCAB_PG_DATABASE
-              value: test-omop
+              value: omopdb
             - name: VOCAB_PG_USER
               value: postgres
             - name: VOCAB_PG_PASSWORD
@@ -25,5 +25,5 @@ spec:
                   name: omop-secrets
                   key: POSTGRES_PASSWORD
             - name: VOCAB_PG_SCHEMA
-              value: omopvocab
+              value: omopcdm
       restartPolicy: OnFailure

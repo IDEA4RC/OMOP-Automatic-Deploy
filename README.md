@@ -37,17 +37,17 @@ This repository contains the necessary files to deploy the OMOP database using K
 |--|--|--|
 | POSTGRES_USER | Name of the administration user of the database | postgres |
 | POSTGRES_PASSWORD | Password of the administration user of the database | mysecretpassword |
-| POSTGRES_DB | Name of the database | test-omop |
+| POSTGRES_DB | Name of the database | omopdb |
 
 #### vocab_uploader service variables:
 
 | Variable name | Explanation | Default Value |
 |--|--|--|
 | VOCAB_PG_HOST | Host of the database | db *(must have the name of the service containing the database)* |
-| VOCAB_PG_DATABASE | Name of the database | test-omop *(must be the same as in database service)* |
+| VOCAB_PG_DATABASE | Name of the database | omopdb *(must be the same as in database service)* |
 | VOCAB_PG_USER | Name of the administration user of the database | postgres *(must be the same as in database service)* |
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
-| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omop-vocab |
+| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopcdm |
 
 3. In order to load the vocabularies when the database is ready, the [vocab_loader](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/vocab_script/scripts/vocab_loader.sh) script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/vocab_script/files) folder. Don't change the files names, because the script uses them to load the vocabularies.
 
@@ -82,7 +82,7 @@ The variables used and its locations are:
 | Variable name | Explanation | Default Value |
 |--|--|--|
 | POSTGRES_USER | Name of the administration user of the database | postgres |
-| POSTGRES_DB | Name of the database | test-omop |
+| POSTGRES_DB | Name of the database | omopdb |
 
 #### OMOP Secrets variables:
 
@@ -95,10 +95,10 @@ The variables used and its locations are:
 | Variable name | Explanation | Default Value |
 |--|--|--|
 | VOCAB_PG_HOST | Host of the database | db *(must have the name of the service containing the database)* |
-| VOCAB_PG_DATABASE | Name of the database | test-omop *(must be the same as in database service)* |
+| VOCAB_PG_DATABASE | Name of the database | omopdb *(must be the same as in database service)* |
 | VOCAB_PG_USER | Name of the administration user of the database | postgres *(must be the same as in database service)* |
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
-| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omop-vocab |
+| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopcdm |
 
 **THIS VARIABLES SHOULD BE PUT ON THE ARGS SECTION AND THE ENV SECTION**
 
@@ -149,7 +149,7 @@ This tutorial deploys a new namespace called Datamesh, with a policy that only a
 | Variable name | Explanation | Default Value |
 |--|--|--|
 | POSTGRES_USER | Name of the administration user of the database | postgres |
-| POSTGRES_DB | Name of the database | test-omop |
+| POSTGRES_DB | Name of the database | omopdb |
 
 #### OMOP Secrets variables:
 
@@ -162,10 +162,10 @@ This tutorial deploys a new namespace called Datamesh, with a policy that only a
 | Variable name | Explanation | Default Value |
 |--|--|--|
 | VOCAB_PG_HOST | Host of the database | db *(must have the name of the service containing the database)* |
-| VOCAB_PG_DATABASE | Name of the database | test-omop *(must be the same as in database service)* |
+| VOCAB_PG_DATABASE | Name of the database | omopdb *(must be the same as in database service)* |
 | VOCAB_PG_USER | Name of the administration user of the database | postgres *(must be the same as in database service)* |
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
-| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omop-vocab |
+| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopcdm |
 
 **THIS VARIABLES SHOULD BE PUT ON THE ARGS SECTION AND THE ENV SECTION**
 

@@ -22,14 +22,14 @@ services:
       dockerfile: Dockerfile.vocab_upload
       args:
         - VOCAB_PG_HOST=db
-        - VOCAB_PG_DATABASE=test-omop
-        - VOCAB_PG_SCHEMA=omopvocab
+        - VOCAB_PG_DATABASE=omopdb
+        - VOCAB_PG_SCHEMA=omopcdm
         - VOCAB_PG_USER=postgres
         - VOCAB_PG_PASSWORD=mysecretpassword
     environment:
       - VOCAB_PG_HOST=db
-      - VOCAB_PG_DATABASE=test-omop
-      - VOCAB_PG_SCHEMA=omopvocab
+      - VOCAB_PG_DATABASE=omopdb
+      - VOCAB_PG_SCHEMA=omopcdm
       - VOCAB_PG_USER=postgres
       - VOCAB_PG_PASSWORD=mysecretpassword
     links:

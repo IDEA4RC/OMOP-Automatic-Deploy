@@ -28,4 +28,4 @@ spec:
                   name: omop-secrets
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
-              value: test-omop
+              value: omopdb
