@@ -69,11 +69,11 @@ This method is for a vanilla Kubernetes cluster without any additional software.
 
 2. In Kubernetes you should change all args variables and environment variables to the values you want. These are displayed in this format:
 
-```yaml
-env:
-  - name: VARIABLE_NAME
-    value: VARIABLE_VALUE
-```
+    ```yaml
+    env:
+    - name: VARIABLE_NAME
+        value: VARIABLE_VALUE
+    ```
 
 The variables used and its locations are:
 
