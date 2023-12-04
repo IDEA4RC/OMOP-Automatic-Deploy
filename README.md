@@ -1,6 +1,6 @@
 # OMOP Database - Kubernetes & Docker Compose Deployment
 
-![OMOP Automatic Deploy - For Docker Compose, Kubernetes & Istio](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/assets/OMOP%20Automatic%20Deploy.png)
+![OMOP Automatic Deploy - For Docker Compose, Kubernetes & Istio](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/assets/OMOP_Automatic_Deploy.png)
 
 This repository contains the necessary files to deploy the OMOP database using Kubernetes or Docker Compose, and the necessary files to populate the database with the OMOP vocabulary that you want. This repository is based on the [OMOP CommonDataModel repository](https://github.com/OHDSI/CommonDataModel) and uses a custom version of the [OHDSI Broadsea vocabulary loader](https://github.com/OHDSI/Broadsea/tree/main/omop_vocab/scripts).
 
