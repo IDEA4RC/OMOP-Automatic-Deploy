@@ -1,4 +1,4 @@
-# OMOP Database - Kubernetes & Docker Compose Deployment
+# OMOP Automatic Deployment - For Docker Compose, Kubernetes & Istio
 
 ![OMOP Automatic Deploy - For Docker Compose, Kubernetes & Istio](assets/OMOP_Automatic_Deploy.png "OMOP Automatic Deploy - For Docker Compose, Kubernetes & Istio")
 
