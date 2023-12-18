@@ -1,0 +1,50 @@
+name: Build and Publish Docker images
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  omop-deploy:
+    name: Push Base OMOP Deploy image to GitHub Container Registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+      
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile.omop
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/omop-deploy:latest
+
+  vocab-uploader:
+    name: Push OMOP Vocab Uploader image to GitHub Container Registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+    
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile.vocab_upload
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/omop-vocab-uploader:latest
