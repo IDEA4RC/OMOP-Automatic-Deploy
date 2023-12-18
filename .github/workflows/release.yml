@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./Dockerfile.omop
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/omop-deploy:latest
+          tags: ghcr.io/idea4rc/omop-deploy:latest
 
   vocab-uploader:
     name: Push OMOP Vocab Uploader image to GitHub Container Registry
@@ -47,4 +47,4 @@ jobs:
           context: .
           file: ./Dockerfile.vocab_upload
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/omop-vocab-uploader:latest
+          tags: ghcr.io/idea4rc/omop-vocab-uploader:latest
