@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: omop-postgres
-          image: omop-cdm-postgres:latest
+          image: ghcr.io/idea4rc/omop-deploy:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: POSTGRES_USER
