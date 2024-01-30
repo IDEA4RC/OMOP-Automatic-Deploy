@@ -1,6 +1,4 @@
 --postgresql CDM DDL Specification for OMOP Common Data Model 5.4
-
-CREATE SCHEMA omopSchema;
 --HINT DISTRIBUTE ON KEY (person_id)
 CREATE TABLE omopSchema.person (
 			person_id integer NOT NULL,
@@ -444,6 +442,7 @@ CREATE TABLE omopSchema.concept_class (
 			concept_class_id varchar(20) NOT NULL,
 			concept_class_name varchar(255) NOT NULL,
 			concept_class_concept_id integer NOT NULL );
+CREATE SCHEMA omopSchema;
 --HINT DISTRIBUTE ON RANDOM
 CREATE TABLE omopSchema.concept_relationship (
 			concept_id_1 integer NOT NULL,
