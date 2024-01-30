@@ -51,31 +51,15 @@ This repository contains the necessary files to deploy the OMOP database using K
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
 | VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopcdm |
 
-3. In order to load the vocabularies when the database is ready, the [vocab_loader](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/vocab_script/scripts/vocab_loader.sh) script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/vocab_script/files) folder. Don't change the files names, because the script uses them to load the vocabularies.
+3. In order to load the vocabularies when the database is ready, the [vocab_loader]() script is used. This script uses the CSV files downloaded from [OHDSI ATHENA]() and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files]() folder. Don't change the files names, because the script uses them to load the vocabularies.
 
-4. When everything is ready, you must execute the [docker-compose.yaml](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/docker-compose.yaml) using this command:
+4. When everything is ready, you must execute the [docker-compose.yaml]() using this command:
 
     ```bash
     docker compose up -d
     ```
 
-### Bare Kubernetes
 
-This method is for a vanilla Kubernetes cluster without any additional software. If you want to deploy the OMOP database in a Kubernetes cluster with Istio, you can use the [Istio Kubernetes](#istio-kubernetes) deployment method.
-
-1. Clone this repository:
-
-    ```bash
-    git clone https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy.git
-    ```
-
-2. In Kubernetes you should change all args variables and environment variables to the values you want. These are displayed in this format:
-
-    ```yaml
-    env:
-    - name: VARIABLE_NAME
-        value: VARIABLE_VALUE
-    ```
 
 The variables used and its locations are:
 
@@ -104,9 +88,9 @@ The variables used and its locations are:
 
 **THIS VARIABLES SHOULD BE PUT ON THE ARGS SECTION AND THE ENV SECTION**
 
-3. In order to load the vocabularies when the database is ready, the [vocab_loader](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/vocab_script/scripts/vocab_loader.sh) script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea) To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/vocab_script/files) folder. Don't change the files names, because the script uses them to load the vocabularies.
+3. In order to load the vocabularies when the database is ready, the [vocab_loader]() script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea) To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files]() folder. Don't change the files names, because the script uses them to load the vocabularies.
 
-4. When everything is ready, you must execute the [kubernetes.yaml](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/kubernetes.yaml) using this command:
+4. When everything is ready, you must execute the [kubernetes.yaml]() using this command:
 
     ```bash
     kubectl apply -f kubernetes/bare-kubernetes/001_OMOP-Secrets.yaml
@@ -171,10 +155,10 @@ This tutorial deploys a new namespace called Datamesh, with a policy that only a
 
 **THIS VARIABLES SHOULD BE PUT ON THE ARGS SECTION AND THE ENV SECTION**
 
-4. In order to load the vocabularies when the database is ready, the [vocab_loader](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/vocab_script/scripts/vocab_loader.sh) script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/vocab_script/files) folder. Don't change the files names, because the script uses them to load the vocabularies.
+4. In order to load the vocabularies when the database is ready, the [vocab_loader]() script is used. This script uses the CSV files downloaded from [OHDSI ATHENA](https://athena.ohdsi.org/vocabulary/list) and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files]() folder. Don't change the files names, because the script uses them to load the vocabularies.
  
 
-5. When everything is ready, you must execute the [kubernetes.yaml](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/tree/main/kubernetes.yaml) using this command:
+5. When everything is ready, you must execute the [kubernetes.yaml]() using this command:
 
     ```bash
     kubectl apply -f kubernetes/istio/001_datamesh.yaml
@@ -212,4 +196,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-See [LICENSE](https://gitlab.lst.tfo.upm.es/idea4rc/omop-deploy/-/blob/main/LICENSE) for details.
+See [LICENSE](./LICENSE) for details.
