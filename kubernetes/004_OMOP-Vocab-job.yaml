@@ -7,24 +7,24 @@ spec:
   template:
     spec:
       containers:
-        - name: populate-db
-          image: ghcr.io/idea4rc/omop-vocab-uploader:latest
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: VOCAB_PG_HOST
-              value: omop-postgres-service
-            - name: VOCAB_PG_DATABASE
-              value: omopdb
-            - name: VOCAB_PG_USER
-              valueFrom:
-                secretKeyRef:
-                  name: omop-secrets
-                  key: POSTGRES_USER
-            - name: VOCAB_PG_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: omop-secrets
-                  key: POSTGRES_PASSWORD
-            - name: VOCAB_PG_SCHEMA
-              value: omopcdm
+      - name: populate-db
+        image: ghcr.io/idea4rc/omop-vocab-uploader:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: VOCAB_PG_HOST
+          value: omop-postgres-service
+        - name: VOCAB_PG_DATABASE
+          value: omopdb
+        - name: VOCAB_PG_USER
+          valueFrom:
+            secretKeyRef:
+              name: omop-secrets
+              key: POSTGRES_USER
+        - name: VOCAB_PG_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: omop-secrets
+              key: POSTGRES_PASSWORD
+        - name: VOCAB_PG_SCHEMA
+          value: omopschema
       restartPolicy: OnFailure

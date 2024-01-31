@@ -13,20 +13,21 @@ spec:
         app: omop-postgres
     spec:
       containers:
-        - name: omop-postgres
-          image: ghcr.io/idea4rc/omop-deploy:latest
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: POSTGRES_USER
-              secretKeyRef:
-                  name: omop-secrets
-                  key: POSTGRES_USER
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: omop-secrets
-                  key: POSTGRES_PASSWORD
-            - name: POSTGRES_DB
-              value: omopdb
-          ports:
-            - containerPort: 5432
+      - name: omop-postgres
+        image: ghcr.io/idea4rc/omop-deploy:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: omop-secrets
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: omop-secrets
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          value: omopdb
+        ports:
+        - containerPort: 5432
