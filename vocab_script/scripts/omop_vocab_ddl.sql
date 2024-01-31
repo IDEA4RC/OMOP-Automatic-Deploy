@@ -1,35 +1,35 @@
-CREATE SCHEMA IF NOT EXISTS omopSchema;
+CREATE SCHEMA IF NOT EXISTS omopcdm;
 
-DROP TABLE IF EXISTS omopSchema.DEATH CASCADE;
-DROP TABLE IF EXISTS omopSchema.MEASUREMENT CASCADE;
-DROP TABLE IF EXISTS omopSchema.CONDITION_OCCURRENCE CASCADE;
-DROP TABLE IF EXISTS omopSchema.OBSERVATION CASCADE;
-DROP TABLE IF EXISTS omopSchema.DRUG_EXPOSURE CASCADE;
-DROP TABLE IF EXISTS omopSchema.PROCEDURE_OCCURRENCE CASCADE;
-DROP TABLE IF EXISTS omopSchema.OBSERVATION_PERIOD CASCADE;
-DROP TABLE IF EXISTS omopSchema.CDM_SOURCE CASCADE;
-DROP TABLE IF EXISTS omopSchema.VISIT_OCCURRENCE CASCADE;
-DROP TABLE IF EXISTS omopSchema.PERSON CASCADE;
-DROP TABLE IF EXISTS omopSchema.DRUG_ERA CASCADE;
-DROP TABLE IF EXISTS omopSchema.CONDITION_ERA CASCADE;
-DROP TABLE IF EXISTS omopSchema.FACT_RELATIONSHIP CASCADE;
-DROP TABLE IF EXISTS omopSchema.PROVIDER CASCADE;
-DROP TABLE IF EXISTS omopSchema.CARE_SITE CASCADE;
-DROP TABLE IF EXISTS omopSchema.VISIT_DETAIL CASCADE;
-DROP TABLE IF EXISTS omopSchema.DEVICE_EXPOSURE CASCADE;
-DROP TABLE IF EXISTS omopSchema.SPECIMEN CASCADE;
-DROP TABLE IF EXISTS omopSchema.NOTE CASCADE;
-DROP TABLE IF EXISTS omopSchema.COST CASCADE;
-DROP TABLE IF EXISTS omopSchema.DOSE_ERA CASCADE;
-DROP TABLE IF EXISTS omopSchema.LOCATION CASCADE;
-DROP TABLE IF EXISTS omopSchema.NOTE_NLP CASCADE;
-DROP TABLE IF EXISTS omopSchema.PAYER_PLAN_PERIOD CASCADE;
-DROP TABLE IF EXISTS omopSchema.METADATA CASCADE;
-DROP TABLE IF EXISTS omopSchema.EPISODE CASCADE;
-DROP TABLE IF EXISTS omopSchema.EPISODE_EVENT CASCADE;
+DROP TABLE IF EXISTS omopcdm.DEATH CASCADE;
+DROP TABLE IF EXISTS omopcdm.MEASUREMENT CASCADE;
+DROP TABLE IF EXISTS omopcdm.CONDITION_OCCURRENCE CASCADE;
+DROP TABLE IF EXISTS omopcdm.OBSERVATION CASCADE;
+DROP TABLE IF EXISTS omopcdm.DRUG_EXPOSURE CASCADE;
+DROP TABLE IF EXISTS omopcdm.PROCEDURE_OCCURRENCE CASCADE;
+DROP TABLE IF EXISTS omopcdm.OBSERVATION_PERIOD CASCADE;
+DROP TABLE IF EXISTS omopcdm.CDM_SOURCE CASCADE;
+DROP TABLE IF EXISTS omopcdm.VISIT_OCCURRENCE CASCADE;
+DROP TABLE IF EXISTS omopcdm.PERSON CASCADE;
+DROP TABLE IF EXISTS omopcdm.DRUG_ERA CASCADE;
+DROP TABLE IF EXISTS omopcdm.CONDITION_ERA CASCADE;
+DROP TABLE IF EXISTS omopcdm.FACT_RELATIONSHIP CASCADE;
+DROP TABLE IF EXISTS omopcdm.PROVIDER CASCADE;
+DROP TABLE IF EXISTS omopcdm.CARE_SITE CASCADE;
+DROP TABLE IF EXISTS omopcdm.VISIT_DETAIL CASCADE;
+DROP TABLE IF EXISTS omopcdm.DEVICE_EXPOSURE CASCADE;
+DROP TABLE IF EXISTS omopcdm.SPECIMEN CASCADE;
+DROP TABLE IF EXISTS omopcdm.NOTE CASCADE;
+DROP TABLE IF EXISTS omopcdm.COST CASCADE;
+DROP TABLE IF EXISTS omopcdm.DOSE_ERA CASCADE;
+DROP TABLE IF EXISTS omopcdm.LOCATION CASCADE;
+DROP TABLE IF EXISTS omopcdm.NOTE_NLP CASCADE;
+DROP TABLE IF EXISTS omopcdm.PAYER_PLAN_PERIOD CASCADE;
+DROP TABLE IF EXISTS omopcdm.METADATA CASCADE;
+DROP TABLE IF EXISTS omopcdm.EPISODE CASCADE;
+DROP TABLE IF EXISTS omopcdm.EPISODE_EVENT CASCADE;
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.PERSON
+CREATE TABLE IF NOT EXISTS omopcdm.PERSON
 (
     person_id                   integer     NOT NULL,
     gender_concept_id           integer     NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.PERSON
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.OBSERVATION_PERIOD
+CREATE TABLE IF NOT EXISTS omopcdm.OBSERVATION_PERIOD
 (
     observation_period_id         serial  PRIMARY KEY,
     person_id                     integer NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.OBSERVATION_PERIOD
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.VISIT_OCCURRENCE
+CREATE TABLE IF NOT EXISTS omopcdm.VISIT_OCCURRENCE
 (
     visit_occurrence_id           integer     NOT NULL,
     person_id                     integer     NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.VISIT_OCCURRENCE
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.VISIT_DETAIL
+CREATE TABLE IF NOT EXISTS omopcdm.VISIT_DETAIL
 (
     visit_detail_id                integer     NOT NULL,
     person_id                      integer     NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.VISIT_DETAIL
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.CONDITION_OCCURRENCE
+CREATE TABLE IF NOT EXISTS omopcdm.CONDITION_OCCURRENCE
 (
     condition_occurrence_id       integer     NOT NULL,
     person_id                     integer     NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.CONDITION_OCCURRENCE
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.DRUG_EXPOSURE
+CREATE TABLE IF NOT EXISTS omopcdm.DRUG_EXPOSURE
 (
     drug_exposure_id             integer     NOT NULL,
     person_id                    integer     NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.DRUG_EXPOSURE
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.PROCEDURE_OCCURRENCE
+CREATE TABLE IF NOT EXISTS omopcdm.PROCEDURE_OCCURRENCE
 (
     procedure_occurrence_id     integer     NOT NULL,
     person_id                   integer     NOT NULL,
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.PROCEDURE_OCCURRENCE
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.DEVICE_EXPOSURE
+CREATE TABLE IF NOT EXISTS omopcdm.DEVICE_EXPOSURE
 (
     device_exposure_id             integer      NOT NULL,
     person_id                      integer      NOT NULL,
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.DEVICE_EXPOSURE
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.MEASUREMENT
+CREATE TABLE IF NOT EXISTS omopcdm.MEASUREMENT
 (
     measurement_id                integer     NOT NULL,
     person_id                     integer     NOT NULL,
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.MEASUREMENT
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.OBSERVATION
+CREATE TABLE IF NOT EXISTS omopcdm.OBSERVATION
 (
     observation_id                integer     NOT NULL,
     person_id                     integer     NOT NULL,
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.OBSERVATION
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.DEATH
+CREATE TABLE IF NOT EXISTS omopcdm.DEATH
 (
     person_id               integer     NOT NULL,
     death_date              date        NOT NULL,
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.DEATH
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.NOTE
+CREATE TABLE IF NOT EXISTS omopcdm.NOTE
 (
     note_id                     integer      NOT NULL,
     person_id                   integer      NOT NULL,
@@ -289,7 +289,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.NOTE
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.NOTE_NLP
+CREATE TABLE IF NOT EXISTS omopcdm.NOTE_NLP
 (
     note_nlp_id                integer       NOT NULL,
     note_id                    integer       NOT NULL,
@@ -308,7 +308,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.NOTE_NLP
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.SPECIMEN
+CREATE TABLE IF NOT EXISTS omopcdm.SPECIMEN
 (
     specimen_id                 integer     NOT NULL,
     person_id                   integer     NOT NULL,
@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.SPECIMEN
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.FACT_RELATIONSHIP
+CREATE TABLE IF NOT EXISTS omopcdm.FACT_RELATIONSHIP
 (
     domain_concept_id_1     integer NOT NULL,
     fact_id_1               integer NOT NULL,
@@ -338,7 +338,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.FACT_RELATIONSHIP
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.LOCATION
+CREATE TABLE IF NOT EXISTS omopcdm.LOCATION
 (
     location_id           integer     NOT NULL,
     address_1             varchar(50) NULL,
@@ -355,7 +355,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.LOCATION
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.CARE_SITE
+CREATE TABLE IF NOT EXISTS omopcdm.CARE_SITE
 (
     care_site_id                  integer      NOT NULL,
     care_site_name                varchar(255) NULL,
@@ -366,7 +366,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.CARE_SITE
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.PROVIDER
+CREATE TABLE IF NOT EXISTS omopcdm.PROVIDER
 (
     provider_id                 integer      NOT NULL,
     provider_name               varchar(255) NULL,
@@ -384,7 +384,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.PROVIDER
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.PAYER_PLAN_PERIOD
+CREATE TABLE IF NOT EXISTS omopcdm.PAYER_PLAN_PERIOD
 (
     payer_plan_period_id          integer     NOT NULL,
     person_id                     integer     NOT NULL,
@@ -406,7 +406,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.PAYER_PLAN_PERIOD
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.COST
+CREATE TABLE IF NOT EXISTS omopcdm.COST
 (
     cost_id                   integer     NOT NULL,
     cost_event_id             integer     NOT NULL,
@@ -433,7 +433,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.COST
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.DRUG_ERA
+CREATE TABLE IF NOT EXISTS omopcdm.DRUG_ERA
 (
     drug_era_id         integer   NOT NULL,
     person_id           integer   NOT NULL,
@@ -445,7 +445,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.DRUG_ERA
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.DOSE_ERA
+CREATE TABLE IF NOT EXISTS omopcdm.DOSE_ERA
 (
     dose_era_id         integer   NOT NULL,
     person_id           integer   NOT NULL,
@@ -457,7 +457,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.DOSE_ERA
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.CONDITION_ERA
+CREATE TABLE IF NOT EXISTS omopcdm.CONDITION_ERA
 (
     condition_era_id           integer   NOT NULL,
     person_id                  integer   NOT NULL,
@@ -468,7 +468,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.CONDITION_ERA
 );
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE IF NOT EXISTS omopSchema.EPISODE
+CREATE TABLE IF NOT EXISTS omopcdm.EPISODE
 (
     episode_id                bigint      NOT NULL,
     person_id                 bigint      NOT NULL,
@@ -486,7 +486,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.EPISODE
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.EPISODE_EVENT
+CREATE TABLE IF NOT EXISTS omopcdm.EPISODE_EVENT
 (
     episode_id                     bigint  NOT NULL,
     event_id                       bigint  NOT NULL,
@@ -494,7 +494,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.EPISODE_EVENT
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.METADATA
+CREATE TABLE IF NOT EXISTS omopcdm.METADATA
 (
     metadata_id              integer      NOT NULL,
     metadata_concept_id      integer      NOT NULL,
@@ -508,7 +508,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.METADATA
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.CDM_SOURCE
+CREATE TABLE IF NOT EXISTS omopcdm.CDM_SOURCE
 (
     cdm_source_name                varchar(255) NOT NULL,
     cdm_source_abbreviation        varchar(25)  NOT NULL,
@@ -524,7 +524,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.CDM_SOURCE
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.DRUG_STRENGTH
+CREATE TABLE IF NOT EXISTS omopcdm.DRUG_STRENGTH
 (
     drug_concept_id             integer    NOT NULL,
     ingredient_concept_id       integer    NOT NULL,
@@ -541,7 +541,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.DRUG_STRENGTH
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.COHORT
+CREATE TABLE IF NOT EXISTS omopcdm.COHORT
 (
     cohort_definition_id integer NOT NULL,
     subject_id           integer NOT NULL,
@@ -550,7 +550,7 @@ CREATE TABLE IF NOT EXISTS omopSchema.COHORT
 );
 
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE IF NOT EXISTS omopSchema.COHORT_DEFINITION
+CREATE TABLE IF NOT EXISTS omopcdm.COHORT_DEFINITION
 (
     cohort_definition_id          integer      NOT NULL,
     cohort_definition_name        varchar(255) NOT NULL,

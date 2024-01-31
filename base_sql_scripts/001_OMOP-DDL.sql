@@ -1,9 +1,9 @@
 --postgresql CDM DDL Specification for OMOP Common Data Model 5.4
 
-CREATE SCHEMA IF NOT EXISTS omopSchema;
+CREATE SCHEMA IF NOT EXISTS omopcdm;
 
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.person (
+CREATE TABLE omopcdm.person (
 			person_id integer NOT NULL,
 			gender_concept_id integer NOT NULL,
 			year_of_birth integer NOT NULL,
@@ -23,14 +23,14 @@ CREATE TABLE omopSchema.person (
 			ethnicity_source_value varchar(50) NULL,
 			ethnicity_source_concept_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.observation_period (
+CREATE TABLE omopcdm.observation_period (
 			observation_period_id integer NOT NULL,
 			person_id integer NOT NULL,
 			observation_period_start_date date NOT NULL,
 			observation_period_end_date date NOT NULL,
 			period_type_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.visit_occurrence (
+CREATE TABLE omopcdm.visit_occurrence (
 			visit_occurrence_id integer NOT NULL,
 			person_id integer NOT NULL,
 			visit_concept_id integer NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE omopSchema.visit_occurrence (
 			discharged_to_source_value varchar(50) NULL,
 			preceding_visit_occurrence_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.visit_detail (
+CREATE TABLE omopcdm.visit_detail (
 			visit_detail_id integer NOT NULL,
 			person_id integer NOT NULL,
 			visit_detail_concept_id integer NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE omopSchema.visit_detail (
 			parent_visit_detail_id integer NULL,
 			visit_occurrence_id integer NOT NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.condition_occurrence (
+CREATE TABLE omopcdm.condition_occurrence (
 			condition_occurrence_id integer NOT NULL,
 			person_id integer NOT NULL,
 			condition_concept_id integer NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE omopSchema.condition_occurrence (
 			condition_source_concept_id integer NULL,
 			condition_status_source_value varchar(50) NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.drug_exposure (
+CREATE TABLE omopcdm.drug_exposure (
 			drug_exposure_id integer NOT NULL,
 			person_id integer NOT NULL,
 			drug_concept_id integer NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE omopSchema.drug_exposure (
 			route_source_value varchar(50) NULL,
 			dose_unit_source_value varchar(50) NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.procedure_occurrence (
+CREATE TABLE omopcdm.procedure_occurrence (
 			procedure_occurrence_id integer NOT NULL,
 			person_id integer NOT NULL,
 			procedure_concept_id integer NOT NULL,
@@ -131,7 +131,7 @@ CREATE TABLE omopSchema.procedure_occurrence (
 			procedure_source_concept_id integer NULL,
 			modifier_source_value varchar(50) NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.device_exposure (
+CREATE TABLE omopcdm.device_exposure (
 			device_exposure_id integer NOT NULL,
 			person_id integer NOT NULL,
 			device_concept_id integer NOT NULL,
@@ -152,7 +152,7 @@ CREATE TABLE omopSchema.device_exposure (
 			unit_source_value varchar(50) NULL,
 			unit_source_concept_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.measurement (
+CREATE TABLE omopcdm.measurement (
 			measurement_id integer NOT NULL,
 			person_id integer NOT NULL,
 			measurement_concept_id integer NOT NULL,
@@ -177,7 +177,7 @@ CREATE TABLE omopSchema.measurement (
 			measurement_event_id integer NULL,
 			meas_event_field_concept_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.observation (
+CREATE TABLE omopcdm.observation (
 			observation_id integer NOT NULL,
 			person_id integer NOT NULL,
 			observation_concept_id integer NOT NULL,
@@ -200,7 +200,7 @@ CREATE TABLE omopSchema.observation (
 			observation_event_id integer NULL,
 			obs_event_field_concept_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.death (
+CREATE TABLE omopcdm.death (
 			person_id integer NOT NULL,
 			death_date date NOT NULL,
 			death_datetime TIMESTAMP NULL,
@@ -209,7 +209,7 @@ CREATE TABLE omopSchema.death (
 			cause_source_value varchar(50) NULL,
 			cause_source_concept_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.note (
+CREATE TABLE omopcdm.note (
 			note_id integer NOT NULL,
 			person_id integer NOT NULL,
 			note_date date NOT NULL,
@@ -227,7 +227,7 @@ CREATE TABLE omopSchema.note (
 			note_event_id integer NULL,
 			note_event_field_concept_id integer NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.note_nlp (
+CREATE TABLE omopcdm.note_nlp (
 			note_nlp_id integer NOT NULL,
 			note_id integer NOT NULL,
 			section_concept_id integer NULL,
@@ -243,7 +243,7 @@ CREATE TABLE omopSchema.note_nlp (
 			term_temporal varchar(50) NULL,
 			term_modifiers varchar(2000) NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.specimen (
+CREATE TABLE omopcdm.specimen (
 			specimen_id integer NOT NULL,
 			person_id integer NOT NULL,
 			specimen_concept_id integer NOT NULL,
@@ -260,14 +260,14 @@ CREATE TABLE omopSchema.specimen (
 			anatomic_site_source_value varchar(50) NULL,
 			disease_status_source_value varchar(50) NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.fact_relationship (
+CREATE TABLE omopcdm.fact_relationship (
 			domain_concept_id_1 integer NOT NULL,
 			fact_id_1 integer NOT NULL,
 			domain_concept_id_2 integer NOT NULL,
 			fact_id_2 integer NOT NULL,
 			relationship_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.location (
+CREATE TABLE omopcdm.location (
 			location_id integer NOT NULL,
 			address_1 varchar(50) NULL,
 			address_2 varchar(50) NULL,
@@ -281,7 +281,7 @@ CREATE TABLE omopSchema.location (
 			latitude NUMERIC NULL,
 			longitude NUMERIC NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.care_site (
+CREATE TABLE omopcdm.care_site (
 			care_site_id integer NOT NULL,
 			care_site_name varchar(255) NULL,
 			place_of_service_concept_id integer NULL,
@@ -289,7 +289,7 @@ CREATE TABLE omopSchema.care_site (
 			care_site_source_value varchar(50) NULL,
 			place_of_service_source_value varchar(50) NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.provider (
+CREATE TABLE omopcdm.provider (
 			provider_id integer NOT NULL,
 			provider_name varchar(255) NULL,
 			npi varchar(20) NULL,
@@ -304,7 +304,7 @@ CREATE TABLE omopSchema.provider (
 			gender_source_value varchar(50) NULL,
 			gender_source_concept_id integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.payer_plan_period (
+CREATE TABLE omopcdm.payer_plan_period (
 			payer_plan_period_id integer NOT NULL,
 			person_id integer NOT NULL,
 			payer_plan_period_start_date date NOT NULL,
@@ -323,7 +323,7 @@ CREATE TABLE omopSchema.payer_plan_period (
 			stop_reason_source_value varchar(50) NULL,
 			stop_reason_source_concept_id integer NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.cost (
+CREATE TABLE omopcdm.cost (
 			cost_id integer NOT NULL,
 			cost_event_id integer NOT NULL,
 			cost_domain_id varchar(20) NOT NULL,
@@ -347,7 +347,7 @@ CREATE TABLE omopSchema.cost (
 			drg_concept_id integer NULL,
 			drg_source_value varchar(3) NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.drug_era (
+CREATE TABLE omopcdm.drug_era (
 			drug_era_id integer NOT NULL,
 			person_id integer NOT NULL,
 			drug_concept_id integer NOT NULL,
@@ -356,7 +356,7 @@ CREATE TABLE omopSchema.drug_era (
 			drug_exposure_count integer NULL,
 			gap_days integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.dose_era (
+CREATE TABLE omopcdm.dose_era (
 			dose_era_id integer NOT NULL,
 			person_id integer NOT NULL,
 			drug_concept_id integer NOT NULL,
@@ -365,7 +365,7 @@ CREATE TABLE omopSchema.dose_era (
 			dose_era_start_date date NOT NULL,
 			dose_era_end_date date NOT NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.condition_era (
+CREATE TABLE omopcdm.condition_era (
 			condition_era_id integer NOT NULL,
 			person_id integer NOT NULL,
 			condition_concept_id integer NOT NULL,
@@ -373,7 +373,7 @@ CREATE TABLE omopSchema.condition_era (
 			condition_era_end_date date NOT NULL,
 			condition_occurrence_count integer NULL );
 --HINT DISTRIBUTE ON KEY (person_id)
-CREATE TABLE omopSchema.episode (
+CREATE TABLE omopcdm.episode (
 			episode_id integer NOT NULL,
 			person_id integer NOT NULL,
 			episode_concept_id integer NOT NULL,
@@ -388,12 +388,12 @@ CREATE TABLE omopSchema.episode (
 			episode_source_value varchar(50) NULL,
 			episode_source_concept_id integer NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.episode_event (
+CREATE TABLE omopcdm.episode_event (
 			episode_id integer NOT NULL,
 			event_id integer NOT NULL,
 			episode_event_field_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.metadata (
+CREATE TABLE omopcdm.metadata (
 			metadata_id integer NOT NULL,
 			metadata_concept_id integer NOT NULL,
 			metadata_type_concept_id integer NOT NULL,
@@ -404,7 +404,7 @@ CREATE TABLE omopSchema.metadata (
 			metadata_date date NULL,
 			metadata_datetime TIMESTAMP NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.cdm_source (
+CREATE TABLE omopcdm.cdm_source (
 			cdm_source_name varchar(255) NOT NULL,
 			cdm_source_abbreviation varchar(25) NOT NULL,
 			cdm_holder varchar(255) NOT NULL,
@@ -417,7 +417,7 @@ CREATE TABLE omopSchema.cdm_source (
 			cdm_version_concept_id integer NOT NULL,
 			vocabulary_version varchar(20) NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.concept (
+CREATE TABLE omopcdm.concept (
 			concept_id integer NOT NULL,
 			concept_name varchar(255) NOT NULL,
 			domain_id varchar(20) NOT NULL,
@@ -429,24 +429,24 @@ CREATE TABLE omopSchema.concept (
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.vocabulary (
+CREATE TABLE omopcdm.vocabulary (
 			vocabulary_id varchar(20) NOT NULL,
 			vocabulary_name varchar(255) NOT NULL,
 			vocabulary_reference varchar(255) NULL,
 			vocabulary_version varchar(255) NULL,
 			vocabulary_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.domain (
+CREATE TABLE omopcdm.domain (
 			domain_id varchar(20) NOT NULL,
 			domain_name varchar(255) NOT NULL,
 			domain_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.concept_class (
+CREATE TABLE omopcdm.concept_class (
 			concept_class_id varchar(20) NOT NULL,
 			concept_class_name varchar(255) NOT NULL,
 			concept_class_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.concept_relationship (
+CREATE TABLE omopcdm.concept_relationship (
 			concept_id_1 integer NOT NULL,
 			concept_id_2 integer NOT NULL,
 			relationship_id varchar(20) NOT NULL,
@@ -454,7 +454,7 @@ CREATE TABLE omopSchema.concept_relationship (
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.relationship (
+CREATE TABLE omopcdm.relationship (
 			relationship_id varchar(20) NOT NULL,
 			relationship_name varchar(255) NOT NULL,
 			is_hierarchical varchar(1) NOT NULL,
@@ -462,18 +462,18 @@ CREATE TABLE omopSchema.relationship (
 			reverse_relationship_id varchar(20) NOT NULL,
 			relationship_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.concept_synonym (
+CREATE TABLE omopcdm.concept_synonym (
 			concept_id integer NOT NULL,
 			concept_synonym_name varchar(1000) NOT NULL,
 			language_concept_id integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.concept_ancestor (
+CREATE TABLE omopcdm.concept_ancestor (
 			ancestor_concept_id integer NOT NULL,
 			descendant_concept_id integer NOT NULL,
 			min_levels_of_separation integer NOT NULL,
 			max_levels_of_separation integer NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.source_to_concept_map (
+CREATE TABLE omopcdm.source_to_concept_map (
 			source_code varchar(50) NOT NULL,
 			source_concept_id integer NOT NULL,
 			source_vocabulary_id varchar(20) NOT NULL,
@@ -484,7 +484,7 @@ CREATE TABLE omopSchema.source_to_concept_map (
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.drug_strength (
+CREATE TABLE omopcdm.drug_strength (
 			drug_concept_id integer NOT NULL,
 			ingredient_concept_id integer NOT NULL,
 			amount_value NUMERIC NULL,
@@ -498,13 +498,13 @@ CREATE TABLE omopSchema.drug_strength (
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.cohort (
+CREATE TABLE omopcdm.cohort (
 			cohort_definition_id integer NOT NULL,
 			subject_id integer NOT NULL,
 			cohort_start_date date NOT NULL,
 			cohort_end_date date NOT NULL );
 --HINT DISTRIBUTE ON RANDOM
-CREATE TABLE omopSchema.cohort_definition (
+CREATE TABLE omopcdm.cohort_definition (
 			cohort_definition_id integer NOT NULL,
 			cohort_definition_name varchar(255) NOT NULL,
 			cohort_definition_description TEXT NULL,
