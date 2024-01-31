@@ -49,7 +49,7 @@ This repository contains the necessary files to deploy the OMOP database using K
 | VOCAB_PG_DATABASE | Name of the database | omopdb *(must be the same as in database service)* |
 | VOCAB_PG_USER | Name of the administration user of the database | postgres *(must be the same as in database service)* |
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
-| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopcdm |
+| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopschema |
 
 3. In order to load the vocabularies when the database is ready, the [vocab_loader]() script is used. This script uses the CSV files downloaded from [OHDSI ATHENA]() and its part of [OHDSI BROADSEA repository](https://github.com/OHDSI/Broadsea). To load the vocabularies, you must download the CSV files from ATHENA and put them in the [vocab_script/files]() folder. Don't change the files names, because the script uses them to load the vocabularies.
 
@@ -151,7 +151,7 @@ This tutorial deploys a new namespace called Datamesh, with a policy that only a
 | VOCAB_PG_DATABASE | Name of the database | omopdb *(must be the same as in database service)* |
 | VOCAB_PG_USER | Name of the administration user of the database | postgres *(must be the same as in database service)* |
 | VOCAB_PG_PASSWORD | Password of the administration user of the database | mysecretpassword *(must be the same as in database service)* |
-| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopcdm |
+| VOCAB_PG_SCHEMA | Schema where the vocabulary will be loaded | omopschema |
 
 **THIS VARIABLES SHOULD BE PUT ON THE ARGS SECTION AND THE ENV SECTION**
 
