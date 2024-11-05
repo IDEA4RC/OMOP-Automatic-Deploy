@@ -12,6 +12,8 @@ COPY ./vocab_script/ /app/
 
 RUN apk add --no-cache --upgrade bash
 
+RUN apk add --no-cache --upgrade postgresql-client
+
 RUN chmod +x ./scripts/vocab_loader.sh
 
 CMD bash ./scripts/vocab_loader.sh
